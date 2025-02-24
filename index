@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Масленичные предсказания</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #ffe4b5; /* Светлый фон без картинки */
+            color: #5a3e36;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 223, 186, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #8b4513;
+        }
+
+        #prediction {
+            font-size: 20px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #5a3e36;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #ff6f61;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        button:hover:not(:disabled) {
+            background-color: #ff3b2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Масленичные предсказания</h1>
+        <p id="prediction">Нажмите на кнопку, чтобы получить предсказание!</p>
+        <button onclick="getPrediction()" id="predictionButton">Получить предсказание</button>
+    </div>
+
+    <script>
+        const predictions = [
+            "Сегодня твой день!",
+            "Удача на твоей стороне.",
+            "Будь осторожен с решениями.",
+            "Впереди ждет что-то прекрасное.",
+            "Ожидай приятный сюрприз!",
+            "Ты добьешься успеха!",
+            "Сегодня все сложится идеально.",
+            "Скоро ты получишь хорошие новости."
+        ];
+
+        function getPrediction() {
+            const randomIndex = Math.floor(Math.random() * predictions.length);
+            const predictionElement = document.getElementById("prediction");
+            const predictionButton = document.getElementById("predictionButton");
+
+            predictionElement.textContent = predictions[randomIndex];
+
+            // Делаем кнопку неактивной после получения предсказания
+            predictionButton.disabled = true;
+            predictionButton.textContent = "Предсказание получено";
+        }
+    </script>
+</body>
+</html>
